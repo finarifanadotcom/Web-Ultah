@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ucapan Ulang Tahun</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+
+    h1 {
+      color: #ff3399;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Selamat Ulang Tahun! 🎂</h1>
+    <div class="message" id="greetingMessage"></div>
+  </div>
+
+  <script>
+    function getNameFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('name');
+    }
+
+    const name = getNameFromURL();
+    const greetingEl = document.getElementById('greetingMessage');
+
+    if (name) {
+      greetingEl.innerHTML = `
+        Selamat ulang tahun, <strong>${decodeURIComponent(name)}</strong>! 🎈<br>
+        Semoga harimu penuh kebahagiaan dan cinta! 🥳
+      `;
+    } else {
+      greetingEl.innerHTML = "Nama tidak ditemukan di URL.";
+    }
+  </script>
+</body>
+</html>

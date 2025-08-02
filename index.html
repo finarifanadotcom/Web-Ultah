@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Masukkan Nama</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #ffe6f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 80%;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #ff3399;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e60073;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Masukkan Nama yang Berulang Tahun</h2>
+    <input type="text" id="nameInput" placeholder="Contoh: Dina" />
+    <br />
+    <button onclick="goToGreeting()">Buat Link Ucapan</button>
+  </div>
+
+  <script>
+    function goToGreeting() {
+      const name = document.getElementById('nameInput').value.trim();
+      if (name) {
+        const encodedName = encodeURIComponent(name);
+        window.location.href = `greeting.html?name=${encodedName}`;
+      } else {
+        alert("Masukkan nama terlebih dahulu.");
+      }
+    }
+  </script>
+</body>
+</html>
