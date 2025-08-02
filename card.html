@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ucapan Ulang Tahun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -17,33 +18,52 @@
     }
 
     .card {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
       max-width: 500px;
+      width: 90%;
+      animation: popIn 0.6s ease-out;
+      color: #fff;
     }
 
     h1 {
-      color: #ff3399;
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 10px;
     }
 
     .message {
+      font-size: 1.2rem;
       margin-top: 20px;
-      font-size: 1.3rem;
-      color: #333;
-      animation: fadeIn 1s ease-in-out;
+      line-height: 1.6;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .emoji {
+      font-size: 2rem;
+      display: block;
+      margin: 10px 0;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>🎉 Selamat Ulang Tahun! 🎂</h1>
+    <h1>✨ Selamat Ulang Tahun! 🎉</h1>
+    <div class="emoji">💖 🎂 🦄</div>
     <div class="message" id="greetingMessage"></div>
   </div>
 
@@ -58,11 +78,13 @@
 
     if (name) {
       greetingEl.innerHTML = `
-        Selamat ulang tahun, <strong>${decodeURIComponent(name)}</strong>! 🎈<br>
-        Semoga harimu penuh kebahagiaan dan cinta! 🥳
+        Hai <strong>${decodeURIComponent(name)}</strong>! 💕<br>
+        Hari ini hari spesialmu. Semoga semua impianmu segera tercapai,<br>
+        dan kamu selalu dikelilingi orang-orang yang sayang kamu. 🥹✨<br><br>
+        <em>Happy vibes only!</em> 🌈
       `;
     } else {
-      greetingEl.innerHTML = "Nama tidak ditemukan di URL.";
+      greetingEl.innerHTML = "Oops... Nama tidak ditemukan di URL. 😢";
     }
   </script>
 </body>
